@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>একটি বিশেষ চিঠি 💌</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+        input [type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff1a1a;
+        }
+        #letterContent {
+            display: none;
+            text-align: left;
+            line-height: 1.6;
+            color: #333;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="mainBox">
+    <!-- পাসওয়ার্ড স্ক্রিন -->
+    <div id="lockScreen">
+        <h2>একটি গোপন চিঠি! 🔒</h2>
+        <p>চিঠিটি পড়তে আমাদের সেই গোপন পাসওয়ার্ডটি দাও:</p>
+        <input type="password" id="passwordInput" placeholder="পাসওয়ার্ড লিখুন...">
+        <br>
+        <button onclick="checkPassword()">চিঠিটি খোলো ✨</button>
+        <div class="error" id="errorMsg"></div>
+    </div>
+
+    <!-- আসল চিঠি (শুরুতে লুকানো থাকবে) -->
+    <div id="letterContent">
+        <h2 style="color: #ff4d4d; text-align: center;">প্রিয় বন্ধু, ❤️</h2>
+        <p>এখানে আপনার মনের সব কথা লিখুন। আপনি চাইলে এখানে যেকোনো কবিতা, স্মৃতি বা সুন্দর মেসেজ লিখে দিতে পারেন।</p>
+        <p>কোডটি ব্যবহার করে আপনার বন্ধুকে সারপ্রাইজ দিন!</p>
+        <p style="text-align: right; font-weight: bold;">- তোমার বন্ধু</p>
+    </div>
+</div>
+
+<script>
+    function checkPassword() {
+        var enteredPassword = document.getElementById("passwordInput").value;
+        
+        // এখানে 'oursecret123' হলো পাসওয়ার্ড। আপনি এটি পরিবর্তন করতে পারেন।
+        if (enteredPassword === "oursecret123") { 
+            document.getElementById("lockScreen").style.display = "none";
+            document.getElementById("letterContent").style.display = "block";
+            document.getElementById("mainBox").style.background = "#fff9f9";
+        } else {
+            document.getElementById("errorMsg").innerText = "ভুল পাসওয়ার্ড! আবার চেষ্টা করো। ❌";
+        }
+    }
+</script>
+
+</body>
+</html>
